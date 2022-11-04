@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from './Book';
+import InputBook from './InputBook';
 
 function BookContainer() {
   const bookArr = [
@@ -34,6 +35,9 @@ function BookContainer() {
           </>
         ))}
       </section>
+      <div className="add book">
+        <InputBook />
+      </div>
     </div>
   );
 }
