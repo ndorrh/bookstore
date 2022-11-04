@@ -9,13 +9,15 @@ import CategoryPage from './pages/CategoryPage';
 class App extends Component {
   render() {
     return (
-      <>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<BooksPage />} />
-          <Route path="caterogyPage" element={<CategoryPage />} />
-        </Routes>
-      </>
+      <div className="App">
+        <section className="book-app">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<BooksPage />} />
+            <Route path="caterogyPage" element={<CategoryPage />} />
+          </Routes>
+        </section>
+      </div>
     );
   }
 }

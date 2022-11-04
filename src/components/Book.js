@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function Book(prop) {
   const { props } = prop;
   const { title, author } = props;
-  console.log(title);
   return (
     <div>
       <div className="book-container">
