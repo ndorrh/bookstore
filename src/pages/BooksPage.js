@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './BooksPage.module.css';
+import BookContainer from '../components/BookContainer';
 
 const BooksPage = () => (
   <>
-    <main className={styles.main}>
-      <p className={styles.welcome}>Welcome to our page!</p>
+    <main>
+      <BookContainer />
     </main>
   </>
 );

@@ -1,12 +1,10 @@
 import React from 'react';
-import styles from './CategoryPage.module.css';
+import Category from '../components/Category';
 
 const CategoryPage = () => (
   <>
-    <main className={styles.quoteContainer}>
-      <h1 className={styles.quote}>
-        Category
-      </h1>
+    <main>
+      <Category />
     </main>
   </>
 );

@@ -13,7 +13,7 @@ class App extends Component {
         <NavBar />
         <Routes>
           <Route path="/" element={<BooksPage />} />
-          <Route path="quote" element={<CategoryPage />} />
+          <Route path="caterogyPage" element={<CategoryPage />} />
         </Routes>
       </>
     );

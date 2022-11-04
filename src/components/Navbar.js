@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-function Nav() {
+function NavBar() {
   return (
     <div>
       <header className="header">
@@ -13,7 +13,7 @@ function Nav() {
             <Link to="/">
               <li className="book-cat">BOOKS</li>
             </Link>
-            <Link to="/categories">
+            <Link to="/caterogyPage">
               <li className="book-cat">CATEGORIES</li>
             </Link>
           </ul>
@@ -28,4 +28,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavBar;
