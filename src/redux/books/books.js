@@ -4,8 +4,8 @@ const booksSlice = createSlice({
   name: 'book',
   initialState: [],
   reducers: {
-    addBook() { },
-    removeBook() { },
+    addBook() { console.log('add book'); },
+    removeBook() { console.log('add book'); },
   },
 });
 
