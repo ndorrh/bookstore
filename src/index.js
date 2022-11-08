@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import rootReducer from './redux/configureStore';
 import './App.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider>
+      <Provider store={rootReducer}>
         <App />
       </Provider>
     </BrowserRouter>

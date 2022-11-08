@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Book from './Book';
 import InputBook from './InputBook';
+import { booksActions } from '../redux/books/books';
 
 function BookContainer() {
   const bookArr = [
@@ -20,6 +22,11 @@ function BookContainer() {
       author: 'Chamba Lumba',
     },
   ];
+
+  const dispatch = useDispatch();
+  const handleRemoveBook = () => {
+    dispatch(booksActions.removeBook());
+  };
   return (
     <div>
       <section className="bookContainer">
@@ -27,10 +34,10 @@ function BookContainer() {
           <>
             <div className="book-details">
               <h3>Empty</h3>
-              <Book props={book} />
+              <Book key={book.id} props={book} />
             </div>
             <div className="book-actions">
-              <button type="button">Remove</button>
+              <button type="button" onClick={handleRemoveBook}>Remove</button>
             </div>
           </>
         ))}
