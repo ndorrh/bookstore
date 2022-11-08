@@ -7,10 +7,10 @@ function Book(prop) {
   return (
     <div>
       <div className="book-container" key={id}>
-        <li className="book-info">
+        <div className="book-info">
           <h1>{title}</h1>
           <h3>{author}</h3>
-        </li>
+        </div>
       </div>
     </div>
   );
