@@ -5,12 +5,7 @@ import { booksActions } from '../redux/books/books';
 function InputBook() {
   const dispatch = useDispatch();
   const handleAddBook = () => {
-    dispatch(booksActions.addBook({
-      id: 1,
-      title: 'Awa and Other plays',
-      author: 'Ndorrh Oswald',
-
-    }));
+    dispatch(booksActions.addBook({}));
   };
   return (
     <div>
