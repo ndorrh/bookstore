@@ -1,36 +1,28 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Book from './Book';
 import InputBook from './InputBook';
+import { booksActions } from '../redux/books/books';
 
 function BookContainer() {
-  const bookArr = [
-    {
-      id: 1,
-      title: 'Things fall apart',
-      author: 'Chinua Achebe',
-    },
-    {
-      id: 2,
-      title: 'The gods are wise',
-      author: 'Andrew Abbas',
-    },
-    {
-      id: 3,
-      title: 'Gods Hands',
-      author: 'Chamba Lumba',
-    },
-  ];
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.booksList);
+
+  const handleRemoveBook = (e) => {
+    dispatch(booksActions.removeBook(e.target.id));
+  };
+
   return (
     <div>
       <section className="bookContainer">
-        {bookArr.map((book) => (
+        {books.map((book) => (
           <>
             <div className="book-details">
               <h3>Empty</h3>
-              <Book props={book} />
+              <Book key={book.id} props={book} />
             </div>
             <div className="book-actions">
-              <button type="button">Remove</button>
+              <button type="button" onClick={handleRemoveBook} id={book.id}>Remove</button>
             </div>
           </>
         ))}
