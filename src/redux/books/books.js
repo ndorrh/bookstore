@@ -36,7 +36,7 @@ const booksSlice = createSlice({
     },
     removeBook(state, action) {
       const bookId = action.payload;
-      const filterBooks = state.booksList.filter((book) => book.id !== parseInt(bookId, 10));
+      const filterBooks = state.booksList.filter((book) => book.id !== bookId);
       return { booksList: filterBooks };
     },
   },
