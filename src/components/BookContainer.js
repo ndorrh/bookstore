@@ -16,15 +16,15 @@ function BookContainer() {
     <div>
       <section className="bookContainer">
         {books.map((book) => (
-          <>
+          <ul key={book.id}>
             <div className="book-details">
               <h3>Empty</h3>
-              <Book key={book.id} props={book} />
+              <Book props={book} />
             </div>
             <div className="book-actions">
               <button type="button" onClick={handleRemoveBook} id={book.id}>Remove</button>
             </div>
-          </>
+          </ul>
         ))}
       </section>
       <div className="add book">
