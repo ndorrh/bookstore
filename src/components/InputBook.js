@@ -18,12 +18,18 @@ function InputBook() {
 
   const dispatch = useDispatch();
   const handleAddBook = () => {
-    dispatch(booksActions.addBook({
-      id: uuidv4(),
-      title: state.title,
-      author: state.author,
+    if (state.author !== '' && state.title !== '') {
+      dispatch(booksActions.addBook({
+        id: uuidv4(),
+        title: state.title,
+        author: state.author,
+      }));
 
-    }));
+      setState({
+        title: '',
+        author: '',
+      });
+    }
   };
   return (
     <div>
