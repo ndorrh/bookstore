@@ -1,19 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 const booksSlice = createSlice({
   name: 'book',
   initialState: {
     booksList: [
       {
-        id: 2,
-        title: 'jame walker',
-        author: 'Ndorrh Oswald',
+        id: uuidv4(),
+        title: 'james walker',
+        author: 'Ndorrh',
 
       },
       {
-        id: 4,
+        id: uuidv4(),
         title: 'home coming',
-        author: 'Ndorrh Oswald',
+        author: 'Oswald',
+
+      },
+      {
+        id: uuidv4(),
+        title: 'Man of steel',
+        author: 'Peter',
 
       },
     ],
