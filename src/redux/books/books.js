@@ -1,29 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+export const getBooks = createAsyncThunk(
+  'booksSlice/getBooks',
+  async () => {
+    const results = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qKP1ozAFmOaklxICkovD/books')
+      .then((res) => res.json());
+    const newArray = Object.keys(results).map((id) => {
+      const obj = results[id][0];
+      obj.id = id;
+      return obj;
+    });
+
+    return newArray;
+  },
+);
 
 const booksSlice = createSlice({
   name: 'book',
   initialState: {
-    booksList: [
-      {
-        id: uuidv4(),
-        title: 'james walker',
-        author: 'Ndorrh',
-
-      },
-      {
-        id: uuidv4(),
-        title: 'home coming',
-        author: 'Oswald',
-
-      },
-      {
-        id: uuidv4(),
-        title: 'Man of steel',
-        author: 'Peter',
-
-      },
-    ],
+    booksList: [],
+    status: '',
   },
   reducers: {
     addBook(state, action) {
@@ -40,6 +36,7 @@ const booksSlice = createSlice({
       return { booksList: filterBooks };
     },
   },
+
 });
 
 export const booksActions = booksSlice.actions;
