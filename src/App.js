@@ -5,7 +5,6 @@ import NavBar from './components/Navbar';
 import BooksPage from './pages/BooksPage';
 import CategoryPage from './pages/CategoryPage';
 
-// eslint-disable-next-line react/prefer-stateless-function
 const App = () => (
   <div className="App">
     <section className="book-app">

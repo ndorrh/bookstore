@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { booksActions } from '../redux/books/books';
+import { booksActions, addBooks } from '../redux/books/books';
 
 function InputBook() {
   const [state, setState] = useState({
@@ -19,11 +19,15 @@ function InputBook() {
   const dispatch = useDispatch();
   const handleAddBook = () => {
     if (state.author !== '' && state.title !== '') {
-      dispatch(booksActions.addBook({
-        id: uuidv4(),
+      const book = {
         title: state.title,
         author: state.author,
-      }));
+        category: 'Empty',
+        id: uuidv4(),
+      };
+      dispatch(booksActions.addBook(book));
+
+      dispatch(addBooks(book));
 
       setState({
         title: '',

@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Book from './Book';
 import InputBook from './InputBook';
-import { booksActions } from '../redux/books/books';
+import { booksActions, getBooks, deleteBooks } from '../redux/books/books';
 
 function BookContainer() {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.booksList);
-
+  const { booksList, status } = useSelector((state) => state.books);
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
   const handleRemoveBook = (e) => {
     dispatch(booksActions.removeBook(e.target.id));
+    dispatch(deleteBooks(e.target.id));
   };
-
   return (
     <div>
       <section className="bookContainer">
-        {books.map((book) => (
+        <p className="status">{status}</p>
+        {booksList.map((book) => (
           <ul key={book.id}>
             <div className="book-details">
               <h3>Empty</h3>
