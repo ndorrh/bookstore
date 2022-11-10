@@ -15,6 +15,16 @@ export const getBooks = createAsyncThunk(
   },
 );
 
+export const deleteBooks = createAsyncThunk('books/deleteBooks', async (parameter) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qKP1ozAFmOaklxICkovD/books/${parameter}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json());
+});
+
 const booksSlice = createSlice({
   name: 'book',
   initialState: {
