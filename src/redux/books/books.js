@@ -69,6 +69,18 @@ const booksSlice = createSlice({
     },
   },
 
+  extraReducers: (builder) => {
+    builder.addCase(getBooks.fulfilled, (state, action) => {
+      const newState = state;
+      newState.booksList = action.payload;
+    });
+
+    builder.addCase(deleteBooks.fulfilled, (state, action) => {
+      const newState = state;
+      newState.status = action.payload;
+    });
+  },
+
 });
 
 export const booksActions = booksSlice.actions;
