@@ -1,6 +1,6 @@
 ![](/projectimage.jpg)
 
-# Math magicians
+# Book Store
 > The Bookstore is a website that Display a list of books, you can Add a book and Remove a selected book.It is made up of 2 pages; the books page, the category page.
 > It was build using ReactJs and redux as a state manager
 ## Description Video
