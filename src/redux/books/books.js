@@ -16,13 +16,15 @@ export const getBooks = createAsyncThunk(
 );
 
 export const deleteBooks = createAsyncThunk('books/deleteBooks', async (parameter) => {
-  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qKP1ozAFmOaklxICkovD/books/${parameter}`, {
+  const del = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qKP1ozAFmOaklxICkovD/books/${parameter}`, {
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   })
     .then((response) => response.json());
+
+  return del;
 });
 
 export const addBooks = createAsyncThunk('books/addBooks', async (parameters) => {
@@ -46,38 +48,41 @@ export const addBooks = createAsyncThunk('books/addBooks', async (parameters) =>
   })
     .then((response) => response.json());
 });
+const initialState = {
+  bookList: [],
+  status: '',
+};
 
 const booksSlice = createSlice({
   name: 'book',
-  initialState: {
-    booksList: [],
-    status: '',
-  },
+  initialState,
   reducers: {
     addBook(state, action) {
       const newBook = action.payload;
-      state.booksList.push({
+      state.bookList.push({
         id: newBook.id,
         title: newBook.title,
         author: newBook.author,
+        category: newBook.category,
       });
     },
     removeBook(state, action) {
+      const newState = state;
       const bookId = action.payload;
-      const filterBooks = state.booksList.filter((book) => book.id !== bookId);
-      return { booksList: filterBooks };
+      const filterBooks = state.bookList.filter((book) => book.id !== bookId);
+      newState.bookList = filterBooks;
     },
   },
 
   extraReducers: (builder) => {
     builder.addCase(getBooks.fulfilled, (state, action) => {
       const newState = state;
-      newState.booksList = action.payload;
+      newState.status = 'Book Added Successfully';
+      newState.bookList = action.payload;
     });
-
-    builder.addCase(deleteBooks.fulfilled, (state, action) => {
+    builder.addCase(deleteBooks.fulfilled, (state) => {
       const newState = state;
-      newState.status = action.payload;
+      newState.deleted = true;
     });
   },
 

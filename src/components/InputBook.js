@@ -7,6 +7,7 @@ function InputBook() {
   const [state, setState] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   const handleInput = (e) => {
@@ -18,11 +19,11 @@ function InputBook() {
 
   const dispatch = useDispatch();
   const handleAddBook = () => {
-    if (state.author !== '' && state.title !== '') {
+    if (state.author !== '' && state.title !== '' && state.category !== '') {
       const book = {
         title: state.title,
         author: state.author,
-        category: 'Empty',
+        category: state.category,
         id: uuidv4(),
       };
       dispatch(booksActions.addBook(book));
@@ -32,11 +33,15 @@ function InputBook() {
       setState({
         title: '',
         author: '',
+        category: '',
       });
     }
   };
   return (
-    <div>
+    <div className="input-form">
+      <div className="input-title">
+        <h2>ADD NEW BOOK</h2>
+      </div>
       <form className="input-book">
         <div className="book-title">
           <input
@@ -56,6 +61,16 @@ function InputBook() {
             onChange={handleInput}
             id="author"
             value={state.author}
+          />
+        </div>
+        <div className="book-categ">
+          <input
+            name="category"
+            type="text"
+            id="category"
+            placeholder="Book Category"
+            value={state.category}
+            onChange={handleInput}
           />
         </div>
         <div className="add-btn">
