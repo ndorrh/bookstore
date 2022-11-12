@@ -11,8 +11,8 @@ function Category() {
   };
 
   return (
-    <div>
-      <p>{status}</p>
+    <div className="category">
+      <h2>{status}</h2>
       <button type="button" onClick={handleStatus}>Check status</button>
     </div>
   );
