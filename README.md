@@ -1,8 +1,8 @@
 ![](/projectimage.jpg)
 
-# Math magicians
+# Book Store
 > The Bookstore is a website that Display a list of books, you can Add a book and Remove a selected book.It is made up of 2 pages; the books page, the category page.
-> It was build using ReactJs
+> It was build using ReactJs and redux as a state manager
 ## Description Video
 
 [Not Available]()
@@ -14,9 +14,10 @@
 - JavaScript (ES6)
 - Linters
 - React
+- redux
 
 ## Live Demo
-[Not Available]()
+[Click here for Live Demo](https://ndorrh.github.io/bookstore/)
 
 
 ## Getting Started
@@ -69,6 +70,11 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
+
+## Design Inspiration
+
+[Zeplin Link](https://app.zeplin.io/project/5b35a9e13227086040f8eb75/screen/5b695e29bb8c844f118f9378)
+
 
 ## 📝 License
 
